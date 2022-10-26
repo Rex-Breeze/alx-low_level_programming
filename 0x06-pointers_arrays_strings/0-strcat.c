@@ -1,28 +1,30 @@
+#include "main.h"
 /**
- * _strcat - concatenates two string together
- * @src: Char[] to append to dest
- * @dest: Char[] to be appended to
+ * len - Function calculates the length of a given string.
+ * @dest: pointer to destination.
  * Return: Always 0.
+ */
+int len(char *dest)
+{
+	return ((*dest != '\0') ? 1 + len(dest + 1) : 0);
+}
+/**
+ * _strcat - function that copies a string.
+ * @dest: This is pointer to the destination array.
+ * @src: This is the string to be appended.
+ * Return: dest.
  */
 
 char *_strcat(char *dest, char *src)
 {
-	int i = 0;
-	int j = 0;
+	char *d_itter = dest + len(dest);
 
-	while (dest[i] != '\0')
+	while (*src != '\0')
 	{
-		i++;
+		*d_itter = *src;
+		src = src + 1;
+		d_itter = d_itter + 1;
 	}
-
-	while (src[j] != '\0')
-	{
-		dest[i] += src[j];
-		i++;
-		j++;
-	}
-
-	dest += '\0';
-
+	*d_itter = *src;
 	return (dest);
 }
