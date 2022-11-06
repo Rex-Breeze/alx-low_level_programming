@@ -1,23 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * main - multiply the args
- * @argc: Argument count
- * @argv: Array of argument strings
- *
- * Return: 0 for successful exit
+ * main - print product of multiplication of two arguments
+ * @argc: counter of arguments
+ * @argv: arguments
+ * Return: (Success)
  */
-int main(int argc, char *argv[])
+
+int main(int argc, char **argv)
 {
-	if (argc < 2)
+	if (argc == 3)
 	{
-		printf("Error");
+		printf("%d\n", atoi(*(argv + 1)) * atoi(*(argv + 2)));
+		return (0);
 	}
 	else
 	{
-		printf("%d\n", atoi(argv[1]) * atoi(argv[2]));
+		printf("Error\n");
+		return (1);
 	}
-
-	return (0);
 }
