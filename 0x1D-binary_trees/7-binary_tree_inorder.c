@@ -1,17 +1,16 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_inorder - Goes through a binary tree using in-order traversal
- * @tree: Pointer to the root node of the tree to traverse
- * @func:Pointer to a function to call for each node
+ * binary_tree_inorder - go through BT using inorder depth-first search..
+ * @tree: root of tree.
+ * @func: function to call.
  *
- * Value in the node must be passed as a function parameter
- * Do nothing if tree or func NULL
  */
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
-	if (!tree || !func)
+	if (tree == NULL || func == NULL)
 		return;
+
 	binary_tree_inorder(tree->left, func);
 	func(tree->n);
 	binary_tree_inorder(tree->right, func);
